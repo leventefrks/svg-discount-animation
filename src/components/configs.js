@@ -43,13 +43,13 @@ export const animeItemsConfig = {
     targets: '.diamond-pink',
     keyframes: [
       {
-        translateX: -3,
+        translateX: 0,
         translateY: -3,
         opacity: 1,
       },
       {
-        translateX: 6,
-        translateY: -6,
+        translateX: -3,
+        translateY: -3,
         opacity: 0,
         duration: 600,
       },
