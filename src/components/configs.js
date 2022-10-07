@@ -7,35 +7,14 @@ export const animeTimelineConfig = {
 };
 
 export const animeItemsConfig = {
-  topPinkTriangle: {
-    targets: '.top-pink-triangle',
+  grayTriangle: {
+    targets: '.gray-triangle',
     keyframes: [
       {
-        translateX: 8,
-        translateY: -5,
         opacity: 1,
       },
       {
-        translateX: 12,
-        translateY: -6,
         opacity: 0,
-        duration: 1000,
-      },
-    ],
-  },
-  circleRectangle: {
-    targets: '.circle-rectangle',
-    keyframes: [
-      {
-        translateX: 2,
-        translateY: -1,
-        opacity: 1,
-      },
-      {
-        translateX: 2,
-        translateY: -2,
-        opacity: 0,
-        duration: 600,
       },
     ],
   },
