@@ -100,7 +100,7 @@
       stroke="#06038D"
     />
     <line
-      class="line blue-line"
+      class="line blue-line--big-right"
       y1="-0.5"
       x2="29.8105"
       y2="-0.5"
@@ -108,7 +108,7 @@
       stroke="#080661"
     />
     <line
-      class="line blue-line"
+      class="line blue-line--big-left"
       y1="-0.5"
       x2="27"
       y2="-0.5"
@@ -124,12 +124,12 @@
       stroke="#3434E0"
     />
     <path
-      class="blue-squiggle squiggle"
+      class="blue-squiggle blue-squiggle--left"
       d="M15.6338 19.5398L21.6447 16.3394L24.8569 22.3281L30.8678 19.1277L34.0801 25.1164L40.091 21.916"
       stroke="#080661"
     />
     <path
-      class="blue-squiggle squiggle"
+      class="blue-squiggle blue-squiggle--right"
       d="M140.888 32.2214L145.026 24.9947L152.279 29.1169L156.417 21.8901L163.67 26.0123L167.808 18.7856"
       stroke="#3434E0"
     />
@@ -302,8 +302,8 @@ const Discount = {
     play() {
       anime
         .timeline(animeTimelineConfig)
-        .add(animeItemsConfig.grayTriangle, 0)
-        .add(animeItemsConfig.line, 1);
+        .add(animeItemsConfig.lineLeft, 0)
+        .add(animeItemsConfig.lineRight, 0);
     },
   },
 };

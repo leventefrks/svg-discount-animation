@@ -2,61 +2,48 @@ export const animeTimelineConfig = {
   easing: 'easeOutElastic(1, 0.7)',
   duration: 2500,
   delay: 300,
-  direction: 'forwards',
+  direction: 'reverse',
   loop: true,
 };
 
+const lineAnimation = (event, isReversed = false) => {
+  const totalLength = event.getTotalLength();
+  event.setAttribute('stroke-dasharray', totalLength);
+  return isReversed ? totalLength * -1 : totalLength;
+};
+
 export const animeItemsConfig = {
-  grayTriangle: {
-    targets: '.gray-triangle',
-    keyframes: [
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-      },
+  lineRight: {
+    targets: [
+      '.blue-line--big-right',
+      '.pink-squiggle',
+      '.blue-squiggle--left',
     ],
-  },
-  diamondPink: {
-    targets: '.diamond-pink',
     keyframes: [
       {
-        translateX: 0,
-        translateY: -3,
-        opacity: 1,
-      },
-      {
-        translateX: -3,
-        translateY: -3,
-        opacity: 0,
-        duration: 600,
-      },
-    ],
-  },
-  line: {
-    targets: ['.line', '.squiggle'],
-    keyframes: [
-      {
-        strokeDashoffset: [
-          e => {
-            const totalLength = e.getTotalLength();
-            e.setAttribute('stroke-dasharray', totalLength);
-            return totalLength;
-          },
-          0,
-        ],
+        strokeDashoffset: [event => lineAnimation(event), 0],
         opacity: [0, 1],
       },
       {
-        strokeDashoffset: [
-          0,
-          e => {
-            const totalLength = e.getTotalLength();
-            e.setAttribute('stroke-dasharray', totalLength);
-            return totalLength * -1;
-          },
-        ],
+        strokeDashoffset: [0, event => lineAnimation(event, true)],
+        opacity: [1, 0],
+      },
+    ],
+  },
+  lineLeft: {
+    targets: [
+      '.blue-line--big-left',
+      '.blue-line',
+      '.pink-line',
+      '.blue-squiggle--right',
+    ],
+    keyframes: [
+      {
+        strokeDashoffset: [event => lineAnimation(event, true), 0],
+        opacity: [0, 1],
+      },
+      {
+        strokeDashoffset: [0, event => lineAnimation(event)],
         opacity: [1, 0],
       },
     ],
